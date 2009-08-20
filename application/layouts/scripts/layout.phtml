@@ -1,0 +1,38 @@
+<?php echo $this->doctype() ?>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Demo Bookshop</title>
+  <style type="text/css">
+	body {
+		background-color: #EEE;
+		font-family: "Trebuchet MS", Verdana, Arial, Helvitica, sans-serif;
+	}
+    a:link, a:visited {
+        color: #0398CA;
+    }
+    div#welcome  {
+    	width: 80%;
+    	margin: 20px auto;
+    	padding: 20px;
+    	padding-top: 5px;
+    	border: 1px solid #CCC;
+    	background-color: #FFF;
+    }    
+	li form   {
+    	display: inline;
+    }
+	.errors {
+		color: #900;
+		padding: 5px 10px;
+		font-size: 90%;
+	}
+  </style>
+</head>
+<body>	
+	<div id="welcome">
+	    <h1>Demo Bookstore</h1>
+	    <?php echo $this->layout()->content ?>
+	</div>
+</body>
+</html>

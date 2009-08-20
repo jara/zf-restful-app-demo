@@ -1,0 +1,8 @@
+<h3>Edit Book</h3>
+
+<?php 
+$this->form->setAction($this->url(array('id' => $this->escape($this->book->id))));
+$this->form->addElement('hidden', '_method', array("value" => 'put'));
+echo $this->form;
+?>
+<a href="<?php echo $this->url(); ?>">Back</a>

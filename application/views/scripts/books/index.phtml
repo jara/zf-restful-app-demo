@@ -1,0 +1,42 @@
+<h3>List Books</h3>
+    <h4><a href="<?php echo $this->baseUrl('books/new'); ?>">Add a new book</a></h4>
+
+    <?php if ($this->books->count() > 0) : ?>
+    	<ul>
+    	<?php foreach ($this->books as $book) : ?>
+    	<li>
+    		<a href="<?php echo $this->baseUrl('books/edit/' . $this->escape($book->id)); ?>">Edit</a> |
+    		<a href="<?php echo $this->url(array('id' => $this->escape($book->id))); ?>" onclick="restfulDelete(this); return false;">Delete</a> |
+    		<form action="<?php echo $this->url(array('id' => $this->escape($book->id))); ?>" method="post">
+    			<?php echo $this->formHidden('_method', 'delete'); ?>
+    			<?php echo $this->formSubmit('submit', 'Delete', array('onclick' => "return confirm('Are you sure?');")); ?>
+    		</form>
+    		<strong>
+    			<a href="<?php echo $this->url(array('id' => $this->escape($book->id))); ?>">
+    				<?php echo $this->escape($book->name); ?>
+    			</a>
+    		</strong> - &pound;<?php echo $this->escape($book->price); ?>
+    	</li>
+    	<?php endforeach; ?>
+    	</ul>
+    <?php else : ?>
+    <p>You haven't added any books yet. Add a new book.</p>
+    <?php endif; ?>
+
+
+
+ <script type="text/javascript">
+<!--
+function restfulDelete(link) {
+	if (!confirm('Are you sure?')) {
+        return false;
+	}
+	var f = '<form id="restful-delete" action="' + link.href + '" method="post" style="display:none">'; 
+	f += '<input type="hidden" name="_method" value="delete">'; 
+	f += '</form>'; 
+	link.parentNode.innerHTML += f;
+	document.getElementById("restful-delete").submit();
+}
+//-->
+</script>
+  

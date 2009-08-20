@@ -1,0 +1,12 @@
+<p>
+  <strong>Name:</strong>
+  <?php echo $this->escape($this->book->name); ?>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <?php echo $this->escape($this->book->price); ?>
+</p>
+
+<a href="<?php echo $this->baseUrl('books/edit/' . $this->escape($this->book->id)); ?>">Edit</a> |
+<a href="<?php echo $this->url(array('controller' => 'books'), 'rest', true); ?>">Back</a>
